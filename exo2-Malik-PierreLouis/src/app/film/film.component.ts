@@ -10,6 +10,8 @@ export class FilmComponent {
     @Input() imgPath: string = "";
     @Input() title:string = "";
 
+    imgClass: string = "imgClass";
+
     public getFilm(title:string, pathName:string) {
         this.imgPath = "assets/" + pathName + ".jpg";
         this.title = title;
