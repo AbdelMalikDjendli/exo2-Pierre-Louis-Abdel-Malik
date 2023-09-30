@@ -1,3 +1,5 @@
 <footer [ngClass]=footerClass>
-  <input type="button" name="contact" value="contact" class="btn btn-secondary" [ngClass]=contactButton>
+  <a routerLink="/formulaire" routerLinkActive="active" ariaCurrentWhenActive="page">
+    <input type="button" name="contact" value="contact" class="btn btn-light text-danger font-weight-bold" [ngClass]=contactButton>
+  </a>
 </footer>

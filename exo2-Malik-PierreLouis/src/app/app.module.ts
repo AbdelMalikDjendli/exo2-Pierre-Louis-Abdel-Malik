@@ -6,8 +6,12 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { FooterComponent } from './footer/footer.component';
+
+import { FormulaireComponent } from './formulaire/formulaire.component';
+import {ReactiveFormsModule} from "@angular/forms";
 import { FilmComponent } from './film/film.component';
 import {FormsModule} from "@angular/forms";
+
 
 @NgModule({
   declarations: [
@@ -15,11 +19,15 @@ import {FormsModule} from "@angular/forms";
     HeaderComponent,
     HomepageComponent,
     FooterComponent,
+
+    FormulaireComponent,
+
     FilmComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     FormsModule
   ],
   providers: [],
