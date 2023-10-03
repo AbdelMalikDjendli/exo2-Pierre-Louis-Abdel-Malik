@@ -17,7 +17,7 @@ export class FormulaireComponent {
   {
   }
 
-  public isChecked = true;
+  public isChecked = false;
 
 
   profilForm = new FormGroup(
@@ -33,12 +33,13 @@ export class FormulaireComponent {
   onChange():void{
     if(this.isChecked) {
       this.isChecked = false;
-      this.profilForm.controls['email'].clearValidators();
-      this.profilForm.controls['email'].updateValueAndValidity();
+      this.profilForm.controls['email'].setValidators([Validators.required,this.emailValidator()]);
     }
     else{
       this.isChecked = true;
+      this.profilForm.controls['email'].clearValidators();
     }
+    this.profilForm.controls['email'].updateValueAndValidity();
   }
 
   emailValidator(): ValidatorFn {
@@ -49,11 +50,12 @@ export class FormulaireComponent {
   }
 
   onSubmit() {
-    alert("Le formulaire est valide");
+
     console.log(this.profilForm.value);
     this.service.setUser(this.builder.CreateUser(this.profilForm.value));
     //console.warn(this.profileForm.value);
     //console.log('Le formulaire est valide');
+    window.alert("Le formulaire est valide");
     this.router.navigate(['homepage'])
 
   }
