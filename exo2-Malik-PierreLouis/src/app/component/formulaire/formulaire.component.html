@@ -1,0 +1,36 @@
+<fieldset class="appFieldsets">
+  <form [formGroup]="profilForm" (ngSubmit)="onSubmit()" >
+    <div class="form-group">
+      <label for="nom">Nom</label>
+      <input id="nom" type="text" formControlName="nom" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label for="prenom">Prénom</label>
+      <input id="prenom" type="text" formControlName="prenom" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label for="age">Age: </label>
+      <input id="age" type="text" formControlName="age" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <input type="checkbox" name="item" value="new" (change)="onChange()" />Ne pas ajouter d'e-mail
+      <div *ngIf="isChecked">
+        <label for="email">E-mail: </label>
+        <input id="email" type="text" formControlName="email" class="form-control">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="commentaire">Commentaire: </label>
+      <textarea class="form-control" rows="3" id="commentaire" type="text" formControlName="commentaire"></textarea>
+    </div>
+
+
+    <button class="btn btn-primary" type="submit" [disabled]="profilForm.invalid" >Envoyer</button>
+  </form>
+
+
+</fieldset>

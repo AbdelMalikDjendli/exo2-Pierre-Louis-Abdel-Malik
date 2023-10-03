@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 import {FormGroup, FormControl, Validators, RequiredValidator, ValidatorFn, AbstractControl} from '@angular/forms';
 import {Router} from "@angular/router";
+import {FormHandlerService} from "../../services/form_handler/form-handler.service";
+import {UserBuilder} from "../../builder/UserBuilder";
 
 @Component({
   selector: 'app-formulaire',
@@ -9,10 +11,14 @@ import {Router} from "@angular/router";
 })
 
 export class FormulaireComponent {
-  constructor( private router:Router) {
+  constructor( private router:Router,
+               private service:FormHandlerService,
+               private builder:UserBuilder)
+  {
   }
 
   public isChecked = true;
+
 
   profilForm = new FormGroup(
     {
@@ -43,10 +49,13 @@ export class FormulaireComponent {
   }
 
   onSubmit() {
-    // TODO: Utiliser EventEmitter avec la valeur du formulaire
+    alert("Le formulaire est valide");
+    console.log(this.profilForm.value);
+    this.service.setUser(this.builder.CreateUser(this.profilForm.value));
     //console.warn(this.profileForm.value);
     //console.log('Le formulaire est valide');
     this.router.navigate(['homepage'])
+
   }
 
 }

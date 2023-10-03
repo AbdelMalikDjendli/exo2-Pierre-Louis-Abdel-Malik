@@ -3,14 +3,17 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { HomepageComponent } from './homepage/homepage.component';
-import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './component/header/header.component';
+import { HomepageComponent } from './component/homepage/homepage.component';
+import { FooterComponent } from './component/footer/footer.component';
 
-import { FormulaireComponent } from './formulaire/formulaire.component';
+import { FormulaireComponent } from './component/formulaire/formulaire.component';
 import {ReactiveFormsModule} from "@angular/forms";
-import { FilmComponent } from './film/film.component';
+import { FilmComponent } from './component/film/film.component';
 import {FormsModule} from "@angular/forms";
+import { GestionComponent } from './component/gestion/gestion.component';
+import {FormHandlerService} from "./services/form_handler/form-handler.service";
+import {UserBuilder} from "./builder/UserBuilder";
 
 
 @NgModule({
@@ -22,7 +25,8 @@ import {FormsModule} from "@angular/forms";
 
     FormulaireComponent,
 
-    FilmComponent
+    FilmComponent,
+      GestionComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +34,7 @@ import {FormsModule} from "@angular/forms";
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [],
+  providers: [FormHandlerService, UserBuilder],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

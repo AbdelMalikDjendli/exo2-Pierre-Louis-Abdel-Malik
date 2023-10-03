@@ -1,0 +1,40 @@
+<fieldset  class="appFieldsets">
+  <div *ngIf="previousFormSubmitter == undefined; else userPrinter">
+    <p>404 not found</p>
+    <img class="imgClass" src="../../../assets/neymar.jpg" alt="logo losc">
+  </div>
+
+  <ng-template #userPrinter>
+
+    <table class="table">
+      <tr>
+        <th>Votre identité</th>
+      <tr>
+      <tr>
+        <td>
+          {{previousFormSubmitter?.firstName}}
+        </td>
+      </tr>
+      <tr>
+        <td>
+          {{previousFormSubmitter?.lastName}}
+        </td>
+      </tr>
+      <tr>
+        <td>
+          {{previousFormSubmitter?.age}} ans
+        </td>
+      </tr>
+      <tr>
+        <td>
+          {{previousFormSubmitter?.email}}
+        </td>
+      </tr>
+      <tr>
+        <td>
+          {{previousFormSubmitter?.commentary}}
+        </td>
+      </tr>
+    </table>
+  </ng-template>
+</fieldset>

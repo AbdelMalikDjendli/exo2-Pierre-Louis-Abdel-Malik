@@ -7,8 +7,8 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
 })
 export class FilmComponent {
     @Output() event = new EventEmitter();
-    @Input() imgPath: string = "";
-    @Input() title:string = "";
+    @Input() imgPath: string = "assets/avatar.jpg";
+    @Input() title:string = "Avatar";
 
     imgClass: string = "imgClass";
 
